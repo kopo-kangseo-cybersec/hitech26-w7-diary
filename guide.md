@@ -197,6 +197,16 @@ create policy "anyone can delete" on public.diaries
    git add .
    git commit -m "feat: 감정 일기 구현 (Supabase 연동)"
    ```
+   > 💡 **Source Control의 "커밋 메시지 생성"(✨ 버튼)으로 메시지를 만들 수도 있습니다.** 기본은 영어로 생성되는데, 한국어로 받고 싶다면 아래처럼 설정하세요.
+   > 1. VS Code 설정(`Ctrl + ,` / Mac은 `Cmd + ,`) → 검색창에 `commit message generation` 입력
+   > 2. **GitHub › Copilot › Chat › Commit Message Generation: Instructions** → **settings.json에서 편집**
+   > 3. 아래 내용을 넣고 저장
+   >    ```json
+   >    "github.copilot.chat.commitMessageGeneration.instructions": [
+   >      { "text": "커밋 메시지는 한국어로 작성한다. 첫 줄은 'feat: ', 'fix: ', 'docs: ' 같은 영어 접두어 뒤에 한국어 요약을 쓴다." }
+   >    ]
+   >    ```
+   > 4. 다시 "커밋 메시지 생성"을 누르면 한국어로 만들어집니다. AI가 만든 메시지도 **내용이 맞는지 읽어보고** 커밋하세요.
 
 **[체크포인트]** `src/api/diaries.js`를 열어보세요. 컴포넌트(화면)에는 Supabase 코드가 없고, 이 파일에만 있나요? 이렇게 나눠두면 나중에 저장소를 바꿀 때 어떤 점이 편할지 한 문장으로 설명해보세요.
 
