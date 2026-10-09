@@ -260,9 +260,12 @@ git checkout dev
    | Branch to deploy | **`prod`** |
    | Build command | `npm run build` |
    | Publish directory | `dist` |
-4. **환경변수 추가** — 같은 화면의 Environment variables(또는 배포 후 **Site configuration → Environment variables**)에 `.env.local`과 같은 두 값을 등록
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_PUBLISHABLE_KEY`
+4. **환경변수 추가** — 같은 화면의 **Add environment variables**(또는 배포 후 **Site configuration → Environment variables**)에서 `.env.local`과 같은 두 값을 등록
+   - 가장 간단한 방법: **Import from a .env file** → `.env.local` 내용을 그대로 붙여넣기
+   - 또는 **Add key/value pairs**로 하나씩 입력
+     - `VITE_SUPABASE_URL`
+     - `VITE_SUPABASE_PUBLISHABLE_KEY`
+   - ⚠️ **"Contains secret values"(비밀 값) 옵션은 체크하지 않습니다.** 이 두 값은 빌드 결과물(브라우저용 JS)에 들어가는 공개 값이라, 비밀로 표시하면 Netlify가 "비밀 값이 결과물에 노출됐다"며 빌드를 실패시킵니다. (6단계 보안 체크포인트에서 확인한 내용과 같은 이유입니다)
 5. Deploy → 완료되면 나온 주소로 접속
 
 > 💡 **로컬에서는 되는데 배포하면 화면이 비거나 오류가 난다면?** 거의 대부분 환경변수 문제입니다. `.env.local`은 GitHub에 올라가지 않았으니 Netlify는 그 값을 모릅니다. Netlify에 환경변수를 등록한 뒤 **Deploys → Trigger deploy → Clear cache and deploy site**로 다시 배포하세요. (Vite는 빌드할 때 환경변수를 코드에 넣기 때문에, 등록 후 반드시 다시 빌드해야 합니다.)
