@@ -41,26 +41,34 @@ main              (원본 보관 — 절대 merge하지 않습니다)
 
 > 💡 Supabase 무료 플랜은 만들 수 있는 프로젝트 수에 제한이 있습니다. 이전에 만든 프로젝트가 있다면 정리하거나, 오늘 수업 전에 확인해두세요.
 
-## 1단계 — Fork & Clone & 실행 확인
+## 1단계 — Fork & Clone
 
 1. `hitech26-w7-diary` 저장소를 본인 GitHub 계정으로 Fork
 2. 로컬로 Clone 후 VS Code로 열기
-3. 터미널에서 실행
+
+## 2단계 — `dev` 브랜치 만들고 실행 확인
+
+`main`은 원본 보관용이므로, 실행 확인부터 `dev`에서 합니다.
+
+1. `dev` 브랜치 생성 후 GitHub에 올리기
+   ```bash
+   git checkout -b dev
+   git push -u origin dev
+   ```
+2. 터미널에서 실행
    ```bash
    npm install
    npm run dev
    ```
-4. 터미널에 나온 주소(`http://localhost:5173`)를 열어 Vite + React 기본 화면이 뜨는지 확인 → 확인되면 터미널에서 `Ctrl + C`로 종료
-
-## 2단계 — 브랜치 만들기
-
-```bash
-git checkout -b dev
-git push -u origin dev
-git checkout -b diary
-```
+3. 터미널에 나온 주소(`http://localhost:5173`)를 열어 Vite + React 기본 화면이 뜨는지 확인 → 확인되면 터미널에서 `Ctrl + C`로 종료
+4. 구현용 `diary` 브랜치 생성
+   ```bash
+   git checkout -b diary
+   ```
 
 이후 구현은 모두 `diary` 브랜치에서 진행합니다.
+
+> 💡 `npm install` 후 `git status`에 `package-lock.json` 변경이 보일 수 있습니다. 컴퓨터마다 npm 버전이 달라 생기는 정상적인 변화이니, 5단계에서 구현 결과와 함께 커밋하면 됩니다.
 
 ## 3단계 — Supabase 프로젝트와 테이블 만들기 (데이터 정의)
 
