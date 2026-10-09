@@ -43,7 +43,7 @@ main              (원본 보관 — 절대 merge하지 않습니다)
 
 ## 1단계 — Fork & Clone
 
-1. `hitech26-w7-diary` 저장소를 본인 GitHub 계정으로 Fork
+1. `hitech26-w7-diary` 저장소를 본인 GitHub 계정으로 Fork — Fork 화면의 **Copy the `main` branch only** 체크는 그대로 둡니다 (`main`만 가져오고, `dev`·`prod`는 직접 만듭니다)
 2. 로컬로 Clone 후 VS Code로 열기
 
 ## 2단계 — `dev` 브랜치 만들고 실행 확인
