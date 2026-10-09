@@ -119,9 +119,9 @@ create policy "anyone can delete" on public.diaries
 
 ## 4단계 — 환경변수 설정
 
-1. Supabase 왼쪽 메뉴 **Project Settings**에서 두 값을 확인합니다
-   - **Project URL** (`https://xxxx.supabase.co`) — **Data API** 메뉴
-   - **Publishable key** (`sb_publishable_...`로 시작) — **API Keys** 메뉴
+1. Supabase에서 두 값을 확인합니다
+   - **Project URL** (`https://xxxx.supabase.co`) — 왼쪽 메뉴 **Project Overview**
+   - **Publishable key** (`sb_publishable_...`로 시작) — 왼쪽 메뉴 **Project Settings → API Keys**
 
    > 💡 상단의 **Connect** 버튼은 쓰지 않습니다. Framework·Variant 등을 고르는 화면이 나오는데, 오늘은 환경변수 파일과 연결 코드를 직접(Copilot과 함께) 만들기 때문에 필요 없습니다.
 2. 프로젝트 루트에 있는 `.env.example`을 복사해 **`.env.local`** 파일을 만들고 값을 채웁니다
@@ -133,6 +133,7 @@ create policy "anyone can delete" on public.diaries
    ```bash
    npm install @supabase/supabase-js
    ```
+   > 💡 macOS에서는 `fsevents ... install scripts not yet covered by allowScripts` 경고가 나올 수 있습니다. npm이 **승인하지 않은 패키지의 설치 스크립트를 자동 실행하지 않도록** 막았다는 안내이며, 실습에는 영향이 없으니 그대로 진행합니다. (설치 스크립트는 악성 패키지가 자주 악용하는 경로라서 npm이 기본으로 막아두는 것입니다)
 
 > ⚠️ **Secret key(`sb_secret_...`) 또는 `service_role` 키는 절대 사용하지 마세요.** 이 키는 RLS를 무시하고 모든 데이터에 접근할 수 있는 관리자 키입니다. 브라우저에서 실행되는 코드에는 Publishable key만 씁니다.
 
