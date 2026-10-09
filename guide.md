@@ -77,7 +77,8 @@ main              (원본 보관 — 절대 merge하지 않습니다)
 1. Supabase 대시보드 → **New project**
 2. 이름: `w7-diary` (자유), Region: **Northeast Asia (Seoul)**
 3. Database Password: 자동 생성 후 **안전한 곳에 따로 저장** (오늘 실습에서는 쓰지 않지만 잃어버리면 다시 볼 수 없습니다)
-4. 그 외 옵션은 기본값 그대로 두고 생성 → 1~2분 기다립니다
+4. **GitHub 저장소 연결 옵션은 연결하지 않고 넘어갑니다.** (DB 설정을 저장소 파일로 관리하는 고급 기능으로, 오늘 실습에는 필요 없습니다)
+5. 그 외 옵션은 기본값 그대로 두고 생성 → 1~2분 기다립니다
 
 ### 3-2. 테이블 생성
 
@@ -118,9 +119,11 @@ create policy "anyone can delete" on public.diaries
 
 ## 4단계 — 환경변수 설정
 
-1. Supabase 대시보드 상단의 **Connect** 버튼(또는 **Project Settings → API Keys**)에서 두 값을 확인
-   - **Project URL** (`https://xxxx.supabase.co`)
-   - **Publishable key** (`sb_publishable_...`로 시작)
+1. Supabase 왼쪽 메뉴 **Project Settings**에서 두 값을 확인합니다
+   - **Project URL** (`https://xxxx.supabase.co`) — **Data API** 메뉴
+   - **Publishable key** (`sb_publishable_...`로 시작) — **API Keys** 메뉴
+
+   > 💡 상단의 **Connect** 버튼은 쓰지 않습니다. Framework·Variant 등을 고르는 화면이 나오는데, 오늘은 환경변수 파일과 연결 코드를 직접(Copilot과 함께) 만들기 때문에 필요 없습니다.
 2. 프로젝트 루트에 있는 `.env.example`을 복사해 **`.env.local`** 파일을 만들고 값을 채웁니다
    ```
    VITE_SUPABASE_URL=https://xxxx.supabase.co
