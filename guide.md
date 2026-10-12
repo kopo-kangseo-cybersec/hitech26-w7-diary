@@ -114,8 +114,14 @@ create policy "anyone can delete" on public.diaries
 
 **[체크포인트]** SQL의 각 줄이 무엇을 정의하는지 Copilot Chat에게 물어보고, 아래 질문에 답해보세요.
 - `emotion` 컬럼에 `'happy'`를 넣으면 어떻게 될까요?
+
+emotion에 'happy'를 넣으면 CHECK 조건에 없어 저장이 거부됩니다.
 - `id`와 `created_at`은 왜 앱에서 보내지 않아도 될까요?
+
+id는 identity로, created_at은 default now()로 DB가 자동 생성하므로 앱이 보내지 않아도 됩니다.
 - `grant`와 RLS 정책은 각각 무엇을 막고, 무엇을 허용하나요?
+
+grant는 anon의 테이블 작업 권한을 정하고, RLS 정책은 그 권한 안에서 실제 행별 허용 범위를 정하며 현재 정책은 모든 행의 조회·추가·삭제를 허용합니다.
 
 ## 4단계 — 환경변수 설정
 
